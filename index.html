@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Callbacks</title>
+	<script>
+	// callbacks
+		// var randomName = function(){
+		// 	var names = ['George', 'Mike', 'Joe', 'Ninja'];
+		// 	var rand_num = Math.floor(Math.random() * ((names.length-1) - 0 + 1)) + 0;
+
+		// 	return names[rand_num];
+		// },
+		// say = function(name){
+		// 	console.log('Say ' + name);
+		// },
+		// yell = function(name){
+		// 	console.log('Yell ' + name);
+		// },
+		// eat = function(name){
+		// 	console.log('Eat ' + name);
+		// },
+		// roll = function(name){
+		// 	console.log('Roll ' + name);
+		// };
+
+		// function random_function(a, x, y, z, f) {
+		// 	var functions = [x, y, z, f];
+		// 	var rand_num = Math.floor(Math.random() * ((functions.length-1) - 0 + 1)) + 0;
+		// 	var rand_func = functions[rand_num];
+
+		// 	rand_func(a());
+		// };
+
+		// random_function(randomName, say, yell, eat, roll);
+
+	// callbacks 2
+		
+	// more callbacks
+		var another_cb = function(){
+			console.log("TEST");
+		};
+
+		var MainFunction = function(fn)
+		{
+			var rand_num = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			var rand_str = Math.random().toString(36).slice(2);
+			var result = fn(rand_num, rand_str, another_cb);
+
+			// alert(result);
+			result();
+
+			function r_fn(){
+				console.log("Returning a function");
+			}
+
+			return r_fn;
+		};
+
+		MainFunction(function(num, str, fn){
+			console.log('Hello World! ' + num + " " + str);
+			fn();
+
+			// return 777;
+
+			function ret_fn(){
+				alert('From callback');
+			}
+
+			return ret_fn;
+		})();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
